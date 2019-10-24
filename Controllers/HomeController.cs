@@ -25,13 +25,14 @@ namespace MyProject.Controllers
             ViewData["prods"] = _pivotSub.searchProductByName(searchTxt);
             return View("searchByName");
         }
-
+      
         public IActionResult Living()
         {
             pivotSub _pivotSub = new pivotSub();
             ViewData["prods"] = _pivotSub.searchByLiving();
             ViewData["options"] = this.optionsList_controller();
-            ViewData["categoryId"] = 1; //
+            ViewData["categoryId"] = 1;
+            ViewData["categoryName"] = "Living";
             return View();
         }
 
@@ -41,6 +42,7 @@ namespace MyProject.Controllers
             ViewData["prods"] = _pivotSub.searchByDining();
             ViewData["options"] = this.optionsList_controller();
             ViewData["categoryId"] = 2;
+            ViewData["categoryName"] = "Dining";
             return View("Living");
         }
 
@@ -50,6 +52,7 @@ namespace MyProject.Controllers
             ViewData["prods"] = _pivotSub.searchByBedroom();
             ViewData["options"] = this.optionsList_controller();
             ViewData["categoryId"] = 3;
+            ViewData["categoryName"] = "Bedroom";
             return View("Living");
         }
 
@@ -59,6 +62,7 @@ namespace MyProject.Controllers
             ViewData["prods"] = _pivotSub.searchByDecor();
             ViewData["options"] = this.optionsList_controller();
             ViewData["categoryId"] = 4;
+            ViewData["categoryName"] = "Decor";
             return View("Living");
         }
 
@@ -93,6 +97,15 @@ namespace MyProject.Controllers
             ViewData["subCategoryId"] = subcatID;
             return View("Living");
         }
+
+        // [HttpPost]
+        // public IActionResult Register(User _user )
+        // {
+        //     UsersPad _newUserPad = new UsersPad();
+        //     _newUserPad.RegisterUser(_user);
+        //     ViewData["success"] = "Registration is successful!";
+        //     return Redirect("/Home/Register");
+        // }
 
         public IActionResult About()
         {

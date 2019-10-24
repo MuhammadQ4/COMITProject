@@ -1,55 +1,41 @@
-/* h2{
-    color: rgba(0, 10, 100, 0.8);
-    border: gray solid 5px;
-    width: 30%;
-    margin:1.66rem;
-} */
-.cont{
-    max-width: 10px;
-    height: 40px;
-}
-    /* text-align:center;
-    margin-top:0px;
-    margin-bottom:100px;  */
-    /* background:gray; */
-    /* background: url("https://images.pivotsubscriptions.com/static/v2/home/v2/pivot-splash.jpg-processed.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size:contain;
-}
-/* img{
-    width: 100%;
-    float: left;
-    margin: auto;
-} */
-/* p{
-    margin:50px;
-    font-weight:700;
-} */
-/* .container{
-    background-image: url("https://images.pivotsubscriptions.com/static/v2/home/v2/pivot-splash.jpg-processed.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size:contain;
-    width: 400px;
-    height: 400px;
-    border: 2px dashed #333;
-} */
-/* h3{
-    text-align: center;
-    margin:auto auto;
-    margin-top: 100px;
-} */
-
-/* body{
-    margin:0px;
-    padding: 0px
-} */
-/* body{
-    position: absolute;
-    background: url(https://images.pivotsubscriptions.com/static/v2/home/v2/pivot-splash-mobile.jpg-processed.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    width:100%
-} */
+img{
+    width:100vw;
+    /*float: left;*/
+    margin: 0%;	
+    }
+    .bottom-left {
+      position: absolute;
+      bottom: 8px;
+      left: 16px;
+    }
+    
+    .top-left {
+      position: absolute;
+      top: 8px;
+      left: 16px;
+    }
+    
+    .top-right {
+      position: absolute;
+      top: 8px;
+      right: 16px;
+    }
+    
+    .bottom-right {
+      position: absolute;
+      bottom: 8px;
+      right: 16px;
+    }
+  
+    .centered {
+      position: absolute;
+      top: 20%;
+      left: 50%;
+      text-align: center;
+      letter-spacing: 0.1rem;
+      transform: translate(-50%, -50%);
+    }
+    .container + p{
+      font-size:5rem;
+    }
+    

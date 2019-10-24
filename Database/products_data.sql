@@ -2,7 +2,13 @@ drop database if exists myProject_db;
 create database myProject_db;
 use myProject_db;
 
-
+create table users
+	(userId int auto_increment primary key,
+     userName varchar(100),
+     userEmail varchar(100),
+     userPassword varchar(100),
+     userAddress varchar(100)
+     );
 create table categories
         (catID  int auto_increment primary key,
 		 catName varchar(15)
@@ -71,7 +77,7 @@ Values  ('Burstall Artificial Plant', 55.99, 1.38),
         ('Tate End Table', 129.00, 2.35),
         
         ('Metro Floor Lamp', 199.00, 2.20), 
-		('Manning Talbe Lamp', 64.99, 1.93), 
+		('Manning Table Lamp', 64.99, 1.93), 
         ('Micah Floor Lamp', 149.00, 2.20),
         
         ('Stirling Chair', 799.00, 8.79), 
@@ -153,7 +159,7 @@ Values  ('Burstall Artificial Plant', 55.99, 1.38),
 		
         -- Decor  
         ('Penny Placemat',   4.99, 0.28), 
-		('30" Box Cushion ',   74.99, 1.64),
+		('30 inch Box Cushion',   74.99, 1.64),
         ('Integer Clock',   89.99, 1.97), 
         
         ('Trundle Small Basket',   24.99, 0.55), 
@@ -166,7 +172,7 @@ Values  ('Burstall Artificial Plant', 55.99, 1.38),
 		('Metro Table Lamp', 129.00, 1.65),
 		('Lunar Table Lamp', 24.99, 0.55),
 		
-		('18" Vinyl Throw Pillow', 39.99, 1.09), 
+		('18 inch Vinyl Throw Pillow', 39.99, 1.09), 
         ('Bolster Pilow', 59.99, 1.09),
         ('Bassano Table Lamp', 39.99, 1.09),
         

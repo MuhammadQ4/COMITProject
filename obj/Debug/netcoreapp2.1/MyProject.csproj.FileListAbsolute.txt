@@ -31,3 +31,6 @@ F:\ComIT\MyProject\obj\Debug\netcoreapp2.1\MyProject.dll
 F:\ComIT\MyProject\obj\Debug\netcoreapp2.1\MyProject.pdb
 F:\ComIT\MyProject\obj\Debug\netcoreapp2.1\MyProject.csproj.CopyComplete
 F:\ComIT\MyProject\obj\Debug\netcoreapp2.1\Razor\Views\Home\Living.g.cshtml.cs
+F:\ComIT\MyProject\obj\Debug\netcoreapp2.1\Razor\Views\User\Register.g.cshtml.cs
+F:\ComIT\MyProject\obj\Debug\netcoreapp2.1\Razor\Views\User\Login.g.cshtml.cs
+F:\ComIT\MyProject\obj\Debug\netcoreapp2.1\Razor\Views\User\Orderplaced.g.cshtml.cs

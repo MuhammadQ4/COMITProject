@@ -2,106 +2,80 @@
     List<Products> prodList = (List<Products>)ViewData["prods"];
     List<subCategory> optionsList = (List<subCategory>)ViewData["options"];
 }
-
-<style>
-input{
-    margin-left: 0px;
-    padding-left:0px;
-    border:red;
-}
-.column{
-    background-color:gray;
-}
-.row{
-    margin:auto auto;
-}
-.panel-default{
-    width: 25%;
-    float: left;
-    margin: 1.66%;
-    text-align: center;
-}
-
-</style>
-
-<div class="row">
-    <div class = "container pull-right" style = "margin-top: 20px">
-        <div class = "col-md-6">
-        <form action="Filter" method="get">
-            <input type="hidden" value="@ViewData["categoryId"]" name="catID">
-            <select  name="subcatID" id = "subcatID" size="1" onchange="this.form.submit();" value=" ">
-                <option value="">Select a Category</option>
-                @foreach (var item in optionsList)
-                {
-                    <option value="@item.subcatID">@item.subcatName</option>
-                }
-            </select>
-            </form>
-        </div>
-        
-        <div class = "col-md-6">
-        <form action="sortProds" method="get">
-            <input type="hidden" value="@ViewData["categoryId"]" name="catID">
-            <input type="hidden" value="@ViewData["subCategoryId"]" name="subcatID">
-            <select name = "sort" size="1" onchange="this.form.submit();">
-                <option value="">---Sort---</option>
-                <option value="PerMonth">Sort by PerMonth</option>
-                <option value="Retail">Sort by Retail</option>
-            </select>
-        </form>
-        </div>
-
-        <span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
-    </div>  
+<div class="container-fluid"style="margin: 20px 0 20px 0;">
+ <h2>@ViewData["categoryName"]</h2>
 </div>
 
-<!-- <div="inlineinputs">
-    <form class="form-inline">
-        <div class="form-group">
-            <label for="exampleInputName2"></label>
-            <input type="text" class="form-control" id="subcat" placeholder="Jane Doe">
-        </div>
-        <div class="form-group">
-            <label for="exampleInputEmail2"></label>
-            <input type="email" class="form-control" id="sort" placeholder="jane.doe@example.com">
-         </div>
-  <button type="submit" class="btn btn-default">Send invitation</button>
-    </form>
-</div> -->
+<div class="container-fluid">
+    <div class="row">
+        <div class = "cont">
+            <div class = "col-md-2">
+            <form action="Filter" method="get">
+                <input type="hidden" value="@ViewData["categoryId"]" name="catID">
+                <select class="custom-select" name="subcatID" id = "subcatID" onchange="this.form.submit();" value=" ">
+                    <option value="">Select a Category</option>
+                    @foreach (var item in optionsList)
+                    {
+                        <option value="@item.subcatID">@item.subcatName</option>
+                    }
+                </select>
+            </form>
+            </div>
+            <!-- <div> -->
+            <div class = "col-md-2">
+            <form action="sortProds" method="get">
+                <input type="hidden" value="@ViewData["categoryId"]" name="catID">
+                <input type="hidden" value="@ViewData["subCategoryId"]" name="subcatID">
+                <select class="custom-select" name = "sort" onchange="this.form.submit();">
+                    <option value="">Sort</option>
+                    <option value="PerMonth">Sort by PerMonth</option>
+                    <option value="Retail">Sort by Retail</option>
+                </select>
+            </form>
+            </div>
 
+            <span class="input-group-addon" style="width:0px; padding-left:0px; padding-right:0px; border:none;"></span>
+        </div>  
+    </div>
+</div>
 
-<!-- </div> 
-            <div class = "col-md-6">
-            <select size="1" onchange="this.form.submit();" name="subcatID">
-                <option value="">Select an option</option>
-                @foreach (var item in optionsList)
-                {
-                    <option value="@item.subcatID">@item.subcatName</option>
-                }
-            </select>
-            </div>  -->
 @if(prodList.Count()==0)
 {
     <h3>No item found.</h3>
 }
 
-
-<div class="row" >
-    @foreach(var item in prodList)
-    {
-        <div class="col-md-4 panel panel-default column">
-            <h4>@item.prodName</h4>
-            <div class="row">
-                <div class="col-md-6">
-                    @item.prodRetail
-                </div>
-                <div class="col-md-6">
-                    @item.prodPerMonth
+<div class="container-fluid">
+    <div class="row">
+        @foreach(var item in prodList)
+        {
+            var image = $"https://localhost:5001/images/{item.prodName}.jpg";
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    <div class="panel-body" style="padding: 0">
+                        <img src="@image" alt="" style="max-width: 100%; height: 250px;">
+                    </div>
+                    <div class="panel-footer">
+                        <h4>@item.prodName</h4>
+                        <h5>Retail: @item.prodRetail</h5>
+                        <p>Per Month: @item.prodPerMonth</p>
+                        <!-- <button class="btn btn-success">Take Me!</button> -->
+                        @{
+                            @using Microsoft.AspNetCore.Http
+                            @inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+                            var user = (string)@HttpContextAccessor.HttpContext.Session.GetString("user");
+                        }
+                    @if(user == null)
+                    {
+                        <a asp-area="" asp-controller="User" asp-action="Login" class="btn btn-success">Take Me!</a>
+                    }
+                    @if(user != null)
+                    {
+                        <a asp-area="" asp-controller="User" asp-action="OrderPlaced" class="btn btn-success">Take Me!</a>
+                    }
+                    </div>
                 </div>
             </div>
-            <div class="btnn">
-                <button class="btn btn-success">Take Me!</button>
-            </div>  
+        }
+        
     </div>
-}
 </div>
